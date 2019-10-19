@@ -3,12 +3,13 @@ const path = require("path"); // update from 23.12.2018
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const nodeExternals = require("webpack-node-externals");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
   entry: { main: "./src/index.js" },
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "main.js"
+    filename: "[name].[chunkhash].js"
   },
   target: "node", // update from 23.12.2018
   externals: [nodeExternals()], // update from 23.12.2018
@@ -33,10 +34,11 @@ module.exports = {
     ]
   },
   plugins: [
+    new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
       // all options are optional
-      filename: "[name].css",
+      filename: "style.[contenthash].css",
       chunkFilename: "[id].css",
       ignoreOrder: false // Enable to remove warnings about conflicting order
     }),
