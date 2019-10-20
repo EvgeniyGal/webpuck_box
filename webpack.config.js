@@ -30,7 +30,8 @@ module.exports = {
           "css-loader",
           "sass-loader"
         ]
-      }
+      },
+      { test: /\.hbs$/, exclude: /node_modules/, use: "handlebars-loader" }
     ]
   },
   plugins: [
