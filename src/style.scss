@@ -1,5 +1,9 @@
-$base-color: rgb(15, 235, 63);
+$base-color: rgb(235, 220, 15);
 
 .mod {
   color: $base-color;
+  background-color: #650202;
+  padding: 5rem;
+  font-size: 4rem;
+  font-weight: 900;
 }
